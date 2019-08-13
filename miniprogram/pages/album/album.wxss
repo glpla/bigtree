@@ -1,0 +1,17 @@
+.img-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+image {
+  width: 240rpx;
+  margin-bottom: 10rpx;
+  border-radius: 10rpx;
+}
+
+.history {
+  text-align: right;
+  font-size: 0.6rem;
+  color: #999;
+}
