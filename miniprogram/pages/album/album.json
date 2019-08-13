@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "相册-Album",
+  "navigationBarTitleText": "相册Album",
   "usingComponents": {
     "van-cell": "/vant-weapp/cell",
     "van-cell-group": "/vant-weapp/cell-group",

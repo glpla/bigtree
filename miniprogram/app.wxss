@@ -166,6 +166,21 @@ page {
 .wrap {
   padding: 10rpx;
 }
-.space{
+
+.space {
   margin-bottom: 10rpx;
+}
+
+.img-box {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.img-box image {
+  width: 240rpx;
+  height: 240rpx;
+  margin-bottom: 10rpx;
+  margin-right: 5rpx;
+  border-radius: 10rpx;
 }

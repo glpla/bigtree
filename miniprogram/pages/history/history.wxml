@@ -1,2 +1,11 @@
-<!--pages/history/history.wxml-->
-<text>pages/history/history.wxml</text>
+<view class='wrap'>
+  <view class='img-box'>
+    <block wx:for='{{records}}' wx:key='' wx:for-item='recordItem'>
+      <view class='space'>{{recordItem.time}}</view>
+      <view class='space'>{{recordItem.msg}}</view>
+      <view class='space'>
+        <image wx:for='{{recordItem.fileID}}' wx:key='' src="{{item}}" mode="aspectFill" bindtap="previewImg" data-src='{{item}}' data-imgs='{{recordItem.fileID}}'></image>
+      </view>
+    </block>
+  </view>
+</view>

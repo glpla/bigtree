@@ -1,17 +1,17 @@
 <view class='wrap'>
   <view class='space'>
     <van-cell-group>
-      <van-field value="{{msg}}" placeholder="说点什么吧(18字以内)" bindchange="onChange" maxlength='15' custom-style='border: 1px solid orange;border-radius: 10rpx;' />
+      <van-field value="{{msg}}" placeholder="说点什么吧(80字以内)" bindchange="change" maxlength='80' type='textarea' autosize />
     </van-cell-group>
   </view>
   <view class='space'>
-    <van-button type="primary" bindtap="uploadImg">上传图片</van-button>
+    <van-button type="warning" plain size="small" bindtap="uploadImg">上传图片</van-button>
   </view>
   <view class='img-box'>
-    <image wx:for='{{imgs}}' wx:key='' src="{{item}}" mode="widthFix" bindtap="previewImg" data-src='{{item}}'></image>
+    <image wx:for='{{imgs}}' wx:key='' src="{{item}}" mode="aspectFill" bindtap="previewImg" data-src='{{item}}'></image>
   </view>
   <view class='space'>
-    <van-button type="warning" size='large'>提交</van-button>
+    <van-button type="warning" size='large' bindtap="submit">提交</van-button>
   </view>
   <view class='space'>
     <view class='history' bindtap="history">查看历史记录</view>
