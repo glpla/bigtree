@@ -1,0 +1,8 @@
+<view class='wrap'>
+  <view class='space'>
+    <van-button type="primary">上传图片</van-button>
+  </view>
+  <view class='space'>
+    <van-button type="warning" size='large'>提交</van-button>
+  </view>
+</view>

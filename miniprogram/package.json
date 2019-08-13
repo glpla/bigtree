@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/glpla/bigtree/issues"
   },
-  "homepage": "https://github.com/glpla/bigtree#readme"
+  "homepage": "https://github.com/glpla/bigtree#readme",
+  "dependencies": {
+    "vant-weapp": "^0.5.18"
+  }
 }
