@@ -21,10 +21,4 @@ page {
   font-size: 32rpx;
 }
 
-.userinfo-btn {
-  width: 80%;
-  margin-top: 10rpx;
-  font-size: 32rpx;
-  background-color: white;
-  color: #999;
-}
+

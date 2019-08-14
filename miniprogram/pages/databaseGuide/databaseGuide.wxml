@@ -2,20 +2,11 @@
 <view class="container">
 
   <!-- 导航 -->
-  <view class="list">
-    <view class="list-item">
-      <text class="request-text">数据库指引</text>
-    </view>
-    <view class="list-item">
-      <text class="request-text" wx:for="{{7}}" style="color: {{step === index + 1 ? 'red': 'black'}}">{{index + 1}}</text>
-    </view>
-    <view class="list-item" wx:if="{{openid}}">
-      <text class="request-text">openid：{{openid}}</text>
-    </view>
-    <view class="list-item" wx:if="{{counterId}}">
-      <text class="request-text">当前记录 ID：{{counterId}}</text>
-    </view>
+
+  <view class="list-item">
+    <text class="txt" wx:for="{{7}}" wx:key='' style="color: {{step === index + 1 ? 'red': 'black'}}">{{index + 1}}</text>
   </view>
+
 
   <!-- 快速操作数据库指引 -->
 

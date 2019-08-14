@@ -5,52 +5,28 @@ page {
   justify-content: flex-start;
 }
 
-.list {
-  margin-top: 40rpx;
-  height: auto;
-  width: 100%;
-  background: #fff;
-  padding: 0 40rpx;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: none;
-  border-right: none;
-  transition: all 300ms ease;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  box-sizing: border-box;
-}
+
 
 .list-item {
   width: 100%;
-  padding: 0;
-  line-height: 104rpx;
-  font-size: 34rpx;
-  color: #007aff;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding: 20rpx;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: space-between;
-  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 
-.list-item:first-child {
-  border-top: none;
+.list-item .txt {
+  color: #333;
+  padding: 0 20rpx;
+  font-size: 24rpx;
 }
 
 .list-item image {
   max-width: 100%;
   max-height: 20vh;
   margin: 20rpx 0;
-}
-
-.request-text {
-  color: #222;
-  padding: 20rpx 0;
-  font-size: 24rpx;
-  line-height: 36rpx;
-  word-break: break-all;
 }
 
 .guide {
@@ -77,7 +53,7 @@ page {
 
 .guide .code {
   margin-top: 20rpx;
-  font-size: 28rpx;
+  font-size: 24rpx;
   line-height: 36rpx;
   color: #666;
   background: white;
@@ -92,7 +68,7 @@ page {
   line-height: 36rpx;
   border-radius: 6rpx;
   color: #fff;
-  white-space: pre
+  white-space: pre;
 }
 
 .guide image {
@@ -141,4 +117,3 @@ page {
 .guide .nav .next {
   margin-right: unset;
 }
-

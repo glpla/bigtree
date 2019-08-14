@@ -6,6 +6,35 @@
   align-items: center;
 }
 
+.hr {
+  width: 80%;
+  text-align: center;
+  margin-top: 20rpx;
+  position: relative;
+  font-size: 28rpx;
+  color: #bbb;
+}
+
+.hr::before {
+  content: '';
+  position: absolute;
+  background: #ddd;
+  width: 34%;
+  height: 2rpx;
+  left: 0;
+  top: 20rpx;
+}
+
+.hr::after {
+  content: '';
+  position: absolute;
+  background: #ddd;
+  width: 34%;
+  height: 2rpx;
+  right: 0;
+  top: 20rpx;
+}
+
 button {
   background: initial;
 }
@@ -16,6 +45,14 @@ button:focus {
 
 button::after {
   border: none;
+}
+
+.userinfo-btn {
+  width: 80%;
+  margin-top: 10rpx;
+  font-size: 32rpx;
+  background-color: white;
+  color: #999;
 }
 
 .uploader, .tunnel {

@@ -6,7 +6,7 @@ Page({
     avatarUrl: './user-unlogin.png',
     userInfo: {},
     logged: false,
-    openid: '暂无',
+    openid: '',
     takeSession: false,
     requestResult: ''
   },
@@ -57,7 +57,7 @@ Page({
       name: 'login',
       data: {},
       success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
+        console.log('[云函数] [login]: ', res)
         app.globalData.openid = res.result.openid
         this.setData({
           openid: res.result.openid
@@ -121,7 +121,7 @@ Page({
       }
     })
   },
-  onDatabse() {
+  onDatabase() {
     wx.navigateTo({
       url: '../databaseGuide/databaseGuide',
     })
@@ -135,6 +135,21 @@ Page({
     wx.navigateTo({
       url: '../openapi/openapi',
     })
-  }
+  },
 
+  onCloudid() {
+    wx.navigateTo({
+      url: '../openapi/cloudid/cloudid',
+    })
+  },
+  onServerApi() {
+    wx.navigateTo({
+      url: '../openapi/serverapi/serverapi',
+    })
+  },
+  onCallback() {
+    wx.navigateTo({
+      url: '../openapi/callback/callback',
+    })
+  }
 })

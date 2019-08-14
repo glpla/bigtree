@@ -5,14 +5,14 @@ const app = getApp()
 Page({
 
   data: {
-    step: 1,
-    counterId: '',
     openid: '',
+    step: 1,
+    counterId: 3,
     count: null,
     queryResult: '',
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     if (app.globalData.openid) {
       this.setData({
         openid: app.globalData.openid
@@ -20,7 +20,7 @@ Page({
     }
   },
 
-  onAdd: function () {
+  onAdd: function() {
     // const db = wx.cloud.database()
     // db.collection('counters').add({
     //   data: {
@@ -135,7 +135,7 @@ Page({
     // }
   },
 
-  nextStep: function () {
+  nextStep: function() {
     // 在第一步，需检查是否有 openid，如无需获取
     if (this.data.step === 1 && !this.data.openid) {
       wx.cloud.callFunction({
@@ -169,7 +169,7 @@ Page({
     }
   },
 
-  prevStep: function () {
+  prevStep: function() {
     this.setData({
       step: this.data.step - 1
     })
@@ -177,6 +177,7 @@ Page({
 
   goHome: function() {
     const pages = getCurrentPages()
+    console.log(pages)
     if (pages.length === 2) {
       wx.navigateBack()
     } else if (pages.length === 1) {

@@ -1,6 +1,7 @@
 // pages/addFunction/addFunction.js
 
-const code = `// 云函数入口函数
+const code = `
+// 云函数入口函数
 exports.main = (event, context) => {
   console.log(event)
   console.log(context)
@@ -16,14 +17,12 @@ Page({
     canIUseClipboard: wx.canIUse('setClipboardData'),
   },
 
-  onLoad: function (options) {
-
-  },
+  onLoad: function(options) {},
 
   copyCode: function() {
     wx.setClipboardData({
       data: code,
-      success: function () {
+      success: function() {
         wx.showToast({
           title: '复制成功',
         })
@@ -57,4 +56,3 @@ Page({
   },
 
 })
-

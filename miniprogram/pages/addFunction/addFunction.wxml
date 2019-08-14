@@ -1,23 +1,29 @@
 <!--pages/addFunction/addFunction.wxml-->
 <view class="container">
-
-  <view class="list">
-    <view class="list-item" bindtap="testFunction">
-      <text>测试云函数</text>
-    </view>
-    <view class="list-item">
-      <text class="request-text">期望输出：{"sum":3}</text>
-    </view>
-    <view class="list-item" wx:if="{{result}}">
-      <text class="request-text">调用结果：{{result}}</text>
-    </view>
+  <view class="list-item" bindtap="testFunction">
+    <text class="txt">测试云函数</text>
+  </view>
+  <view class="list-item">
+    <text class="txt">期望输出：{"sum":3}</text>
+  </view>
+  <view class="list-item" wx:if="{{result}}">
+    <text class="txt">调用结果：{{result}}</text>
   </view>
 
   <view class="guide">
     <text class="headline">新增云函数</text>
     <text class="p">1. 在云函数根目录 cloudfunctions 上右键选择新建云函数，命名为 sum</text>
     <text class="p">2. 在创建的 cloudfunctions/sum/index.js 文件中添加如下代码</text>
-    <image class="image1" src="../../images/code-func-sum.png" mode="aspectFit"></image>
+    <text class='code'>
+    // 云函数入口函数
+    exports.main = (event, context) => {
+      console.log(event)
+      console.log(context)
+      return {
+        sum: event.a + event.b
+      }
+    }
+    </text>
     <button class="copyBtn" wx:if="{{canIUseClipboard}}" bindtap="copyCode">复制代码</button>
     <text class="p">3. 在 cloudfunctions/sum 目录上右键上传并部署</text>
     <text class="p">4. 点击测试云函数测试</text>
