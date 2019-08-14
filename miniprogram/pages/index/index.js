@@ -6,6 +6,7 @@ Page({
     avatarUrl: './user-unlogin.png',
     userInfo: {},
     logged: false,
+    openid: '暂无',
     takeSession: false,
     requestResult: ''
   },
@@ -23,8 +24,11 @@ Page({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+
           wx.getUserInfo({
+            lang: "zh_CN",
             success: res => {
+              console.log(res.userInfo)
               this.setData({
                 avatarUrl: res.userInfo.avatarUrl,
                 userInfo: res.userInfo
@@ -37,6 +41,7 @@ Page({
   },
 
   onGetUserInfo: function(e) {
+    console.log(e)
     if (!this.logged && e.detail.userInfo) {
       this.setData({
         logged: true,
@@ -54,34 +59,34 @@ Page({
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
         app.globalData.openid = res.result.openid
-        wx.navigateTo({
-          url: '../userConsole/userConsole',
+        this.setData({
+          openid: res.result.openid
+        })
+        wx.showToast({
+          title: 'openid获取成功',
         })
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
-        wx.navigateTo({
-          url: '../deployFunctions/deployFunctions',
-        })
       }
     })
   },
 
   // 上传图片
-  doUpload: function () {
+  doUpload: function() {
     // 选择图片
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
-      success: function (res) {
+      success: function(res) {
 
         wx.showLoading({
           title: '上传中',
         })
 
         const filePath = res.tempFilePaths[0]
-        
+
         // 上传图片
         const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
         wx.cloud.uploadFile({
@@ -93,7 +98,7 @@ Page({
             app.globalData.fileID = res.fileID
             app.globalData.cloudPath = cloudPath
             app.globalData.imagePath = filePath
-            
+
             wx.navigateTo({
               url: '../storageConsole/storageConsole'
             })
@@ -116,5 +121,20 @@ Page({
       }
     })
   },
+  onDatabse() {
+    wx.navigateTo({
+      url: '../databaseGuide/databaseGuide',
+    })
+  },
+  onCloudFunc() {
+    wx.navigateTo({
+      url: '../addFunction/addFunction',
+    })
+  },
+  onCloudCall() {
+    wx.navigateTo({
+      url: '../openapi/openapi',
+    })
+  }
 
 })
