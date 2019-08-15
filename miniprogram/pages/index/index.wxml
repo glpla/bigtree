@@ -1,26 +1,11 @@
 <view class="container">
-
   <!-- 用户 openid -->
-
   <button class="userinfo-avatar" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" style="background-image: url({{avatarUrl}})"></button>
 
   <view class='userinfo-txt'>{{userInfo['nickName']}}</view>
   <view class='userinfo-txt'>{{userInfo['gender']==1?"男":"女"}}</view>
   <view class='userinfo-txt'>{{userInfo['province']}}.{{userInfo['country']}}</view>
-  <view class='userinfo-txt'>{{openid}}</view>
 
   <!-- 获取 openid -->
-  <button class="userinfo-btn" bindtap="onGetOpenid" wx:if='{{!openid}}'>点击获取 openid</button>
-  <!-- 操作数据库 -->
-  <button class="userinfo-btn" bindtap="onDatabase" open-type="navigate">数据库操作</button>
-  <!-- 新建云函数 -->
-  <button class="userinfo-btn" bindtap="onCloudFunc" open-type="navigate">云函数使用</button>
-  <!-- 云调用 -->
-  <view class="hr">云函数api</view>
-  <!-- <button class="userinfo-btn" bindtap="onCloudCall" open-type="navigate">云调用</button> -->
-  <button class="userinfo-btn" bindtap="onServerApi" open-type="navigate">服务端调用</button>
-  <button class="userinfo-btn" bindtap="onCloudid" open-type="navigate">开放数据调用</button>
-  <button class="userinfo-btn" bindtap="onCallback" open-type="navigate">消息推送</button>
-  <view class="price">{{price}}</view>
-
+  <button class="userinfo-btn" bindtap="onGetOpenid">我的小站</button>
 </view>

@@ -1,0 +1,27 @@
+<view class='container'>
+  <view class='section'>
+    <van-cell-group>
+      <van-field value="{{msg}}" placeholder="说点什么吧(80字以内)" bindchange="onChange" maxlength='80' type='textarea' autosize />
+    </van-cell-group>
+  </view>
+  <view class='section'>
+    <van-button type="warning" plain size="small" bindtap="uploadImg">上传图片</van-button>
+  </view>
+  <view class='section'>
+    <view class='info-img'>
+      <view class='img-box' wx:for='{{imgs}}' wx:key=''>
+        <image src="{{item}}" mode="widthFit" bindtap="previewImg" data-src='{{item}}'></image>
+      </view>
+    </view>
+  </view>
+  <view class='section'>
+    <van-button type="warning" size='large' bindtap="onSubmit" disabled='{{imgs.length==0 || msg=="" }}'>提交</van-button>
+  </view>
+  <view class='section'>
+    <button bindtap="test">test</button>
+  </view>
+  <view class='section'>
+    <view class='history' bindtap="onHistory">查看历史记录</view>
+  </view>
+
+</view>

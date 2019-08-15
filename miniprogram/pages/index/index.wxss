@@ -1,11 +1,3 @@
-page {
-  background: #f6f6f6;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #999;
-}
-
 .userinfo-avatar {
   width: 200rpx;
   height: 200rpx;
@@ -18,7 +10,42 @@ page {
 
 .userinfo-txt {
   padding-bottom: 10rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
+  color: #999;
 }
 
+.userinfo-btn {
+  width: 80%;
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  background-color: #fff;
+}
 
+.userinfo-hr {
+  width: 80%;
+  text-align: center;
+  margin-top: 20rpx;
+  position: relative;
+  font-size: 28rpx;
+  color: #bbb;
+}
+
+.userinfo-hr::before {
+  content: '';
+  position: absolute;
+  background: #ded;
+  width: 34%;
+  height: 2rpx;
+  left: 0;
+  top: 20rpx;
+}
+
+.userinfo-hr::after {
+  content: '';
+  position: absolute;
+  background: #ded;
+  width: 34%;
+  height: 2rpx;
+  right: 0;
+  top: 20rpx;
+}

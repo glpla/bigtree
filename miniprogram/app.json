@@ -1,16 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/album/album",
-    "pages/history/history",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid"
+    "pages/edit/edit",
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

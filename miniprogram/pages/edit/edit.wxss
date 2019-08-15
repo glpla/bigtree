@@ -1,5 +1,5 @@
 .history {
   text-align: right;
-  font-size: 0.6rem;
+  font-size: 28rpx;
   color: #999;
 }

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "相册Album",
+  "navigationBarTitleText": "开发日志 Dairy",
   "usingComponents": {
     "van-cell": "/vant-weapp/cell",
     "van-cell-group": "/vant-weapp/cell-group",

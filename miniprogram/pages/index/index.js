@@ -6,9 +6,7 @@ Page({
     avatarUrl: './user-unlogin.png',
     userInfo: {},
     logged: false,
-    openid: '',
-    takeSession: false,
-    requestResult: ''
+    openid: 'ofaJG4zF9VE6g206HAu-9zhajhck'
   },
 
   onLoad: function() {
@@ -28,7 +26,7 @@ Page({
           wx.getUserInfo({
             lang: "zh_CN",
             success: res => {
-              console.log(res.userInfo)
+              // console.log(res.userInfo)
               this.setData({
                 avatarUrl: res.userInfo.avatarUrl,
                 userInfo: res.userInfo
@@ -59,97 +57,19 @@ Page({
       success: res => {
         console.log('[云函数] [login]: ', res)
         app.globalData.openid = res.result.openid
-        this.setData({
-          openid: res.result.openid
-        })
-        wx.showToast({
-          title: 'openid获取成功',
-        })
+        if (res.result.openid == this.data.openid) {
+          wx.navigateTo({
+            url: '../edit/edit',
+          })
+        } else {
+          wx.navigateTo({
+            url: '../logs/logs',
+          })
+        }
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
       }
-    })
-  },
-
-  // 上传图片
-  doUpload: function() {
-    // 选择图片
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      sourceType: ['album', 'camera'],
-      success: function(res) {
-
-        wx.showLoading({
-          title: '上传中',
-        })
-
-        const filePath = res.tempFilePaths[0]
-
-        // 上传图片
-        const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
-        wx.cloud.uploadFile({
-          cloudPath,
-          filePath,
-          success: res => {
-            console.log('[上传文件] 成功：', res)
-
-            app.globalData.fileID = res.fileID
-            app.globalData.cloudPath = cloudPath
-            app.globalData.imagePath = filePath
-
-            wx.navigateTo({
-              url: '../storageConsole/storageConsole'
-            })
-          },
-          fail: e => {
-            console.error('[上传文件] 失败：', e)
-            wx.showToast({
-              icon: 'none',
-              title: '上传失败',
-            })
-          },
-          complete: () => {
-            wx.hideLoading()
-          }
-        })
-
-      },
-      fail: e => {
-        console.error(e)
-      }
-    })
-  },
-  onDatabase() {
-    wx.navigateTo({
-      url: '../databaseGuide/databaseGuide',
-    })
-  },
-  onCloudFunc() {
-    wx.navigateTo({
-      url: '../addFunction/addFunction',
-    })
-  },
-  onCloudCall() {
-    wx.navigateTo({
-      url: '../openapi/openapi',
-    })
-  },
-
-  onCloudid() {
-    wx.navigateTo({
-      url: '../openapi/cloudid/cloudid',
-    })
-  },
-  onServerApi() {
-    wx.navigateTo({
-      url: '../openapi/serverapi/serverapi',
-    })
-  },
-  onCallback() {
-    wx.navigateTo({
-      url: '../openapi/callback/callback',
     })
   }
 })

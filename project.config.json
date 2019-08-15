@@ -40,6 +40,10 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 1,
 			"list": [
@@ -53,6 +57,14 @@
 					"id": -1,
 					"name": "album",
 					"pathName": "pages/album/album",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "history",
+					"pathName": "pages/history/history",
+					"query": "",
 					"scene": null
 				}
 			]
