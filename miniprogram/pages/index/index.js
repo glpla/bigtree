@@ -16,7 +16,6 @@ Page({
       })
       return
     }
-
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -39,7 +38,7 @@ Page({
   },
 
   onGetUserInfo: function(e) {
-    console.log(e)
+    // console.log(e)
     if (!this.logged && e.detail.userInfo) {
       this.setData({
         logged: true,
@@ -70,6 +69,11 @@ Page({
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
       }
+    })
+  },
+  onLogs() {
+    wx.redirectTo({
+      url: '../logs/logs',
     })
   }
 })

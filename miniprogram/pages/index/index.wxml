@@ -2,10 +2,14 @@
   <!-- 用户 openid -->
   <button class="userinfo-avatar" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" style="background-image: url({{avatarUrl}})"></button>
 
-  <view class='userinfo-txt'>{{userInfo['nickName']}}</view>
-  <view class='userinfo-txt'>{{userInfo['gender']==1?"男":"女"}}</view>
-  <view class='userinfo-txt'>{{userInfo['province']}}.{{userInfo['country']}}</view>
+  <view class='userinfo-txt'>{{userInfo['nickName']?userInfo['nickName']:"无名氏"}}</view>
+  <view class='userinfo-txt'>{{userInfo['gender']?(userInfo['gender']==1?"男":"女"):" . "}}</view>
+  <view class='userinfo-txt'>
+    <text>{{userInfo['province']?userInfo['province']:"阿凡达"}}</text> .
+    <text>{{userInfo['country']?userInfo['country']:"潘多拉"}}</text>
+  </view>
 
   <!-- 获取 openid -->
-  <button class="userinfo-btn" bindtap="onGetOpenid">我的小站</button>
+  <!-- <button class="userinfo-btn" bindtap="onGetOpenid">我的小站</button> -->
+  <button class="userinfo-btn" bindtap="onLogs">我的小站</button>
 </view>
