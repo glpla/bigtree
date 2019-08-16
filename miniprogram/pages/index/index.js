@@ -1,4 +1,9 @@
-//index.js
+// 引入SDK核心类
+let QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
+// 实例化API核心类
+let qqmapsdk = new QQMapWX({
+  key: 'U6QBZ-ROQ3W-PFMRZ-O4VA5-LZOKQ-G7FZA'
+});
 const app = getApp()
 
 Page({
@@ -6,7 +11,9 @@ Page({
     avatarUrl: './user-unlogin.png',
     userInfo: {},
     logged: false,
-    openid: 'ofaJG4zF9VE6g206HAu-9zhajhck'
+    openid: 'ofaJG4zF9VE6g206HAu-9zhajhck',
+    city: null,
+    province: null
   },
 
   onLoad: function() {
@@ -25,7 +32,7 @@ Page({
           wx.getUserInfo({
             lang: "zh_CN",
             success: res => {
-              // console.log(res.userInfo)
+              console.log(res.userInfo)
               this.setData({
                 avatarUrl: res.userInfo.avatarUrl,
                 userInfo: res.userInfo
@@ -34,6 +41,29 @@ Page({
           })
         }
       }
+    })
+    wx.getLocation({
+      type: 'wgs84',
+      success: res => {
+        // 调用sdk接口
+        qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude
+          },
+          success: res => {
+            //获取当前地址成功
+            console.log(res);
+            this.setData({
+              city: res.result.address_component.city,
+              province: res.result.address_component.province
+            })
+          },
+          fail: res => {
+            console.log('获取当前地址失败');
+          }
+        });
+      },
     })
   },
 
@@ -48,7 +78,7 @@ Page({
     }
   },
 
-  onGetOpenid: function() {
+  onLogs: function() {
     // 调用云函数
     wx.cloud.callFunction({
       name: 'login',
@@ -71,9 +101,9 @@ Page({
       }
     })
   },
-  onLogs() {
-    wx.redirectTo({
-      url: '../logs/logs',
-    })
-  }
+  // onLogs() {
+  //   wx.redirectTo({
+  //     url: '../logs/logs',
+  //   })
+  // }
 })

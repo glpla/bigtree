@@ -5,8 +5,8 @@
   <view class='userinfo-txt'>{{userInfo['nickName']?userInfo['nickName']:"无名氏"}}</view>
   <view class='userinfo-txt'>{{userInfo['gender']?(userInfo['gender']==1?"男":"女"):" . "}}</view>
   <view class='userinfo-txt'>
-    <text>{{userInfo['province']?userInfo['province']:"阿凡达"}}</text> .
-    <text>{{userInfo['country']?userInfo['country']:"潘多拉"}}</text>
+    <text>{{city?city:"阿凡达"}}</text> .
+    <text>{{province?province:"潘多拉"}}</text>
   </view>
 
   <!-- 获取 openid -->
