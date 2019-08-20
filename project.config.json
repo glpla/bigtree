@@ -54,8 +54,8 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "pages/edit/edit",
+					"id": 1,
+					"name": "edit",
 					"pathName": "pages/edit/edit",
 					"query": "",
 					"scene": null

@@ -1,9 +1,16 @@
-// 引入SDK核心类
+// 获取自定义的类, 只能是相对路径啊.草!!!
+import {
+  Demo
+} from '../../utils/demo.js'
+// 实例化类
+let oKey = new Demo();
 let QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
 // 实例化API核心类
+
 let qqmapsdk = new QQMapWX({
   key: 'U6QBZ-ROQ3W-PFMRZ-O4VA5-LZOKQ-G7FZA'
 });
+
 const app = getApp()
 
 Page({
@@ -17,6 +24,7 @@ Page({
   },
 
   onLoad: function() {
+    console.log(oKey.getKey())
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',
@@ -32,7 +40,7 @@ Page({
           wx.getUserInfo({
             lang: "zh_CN",
             success: res => {
-              console.log(res.userInfo)
+              // console.log(res.userInfo)
               this.setData({
                 avatarUrl: res.userInfo.avatarUrl,
                 userInfo: res.userInfo
@@ -53,7 +61,7 @@ Page({
           },
           success: res => {
             //获取当前地址成功
-            console.log(res);
+            // console.log(res);
             this.setData({
               city: res.result.address_component.city,
               province: res.result.address_component.province
@@ -87,11 +95,11 @@ Page({
         console.log('[云函数] [login]: ', res)
         app.globalData.openid = res.result.openid
         if (res.result.openid == this.data.openid) {
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../edit/edit',
           })
         } else {
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../logs/logs',
           })
         }

@@ -12,13 +12,21 @@ Page({
     city: "",
     prov: ""
   },
-
+  del() {
+    wx.cloud.callFunction({
+      name: 'db-item-del'
+    }).then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
+  },
   onLoad: function(options) {
     wx.getLocation({
       type: 'wgs84',
       success: res => {
-        console.log('wx.getLocation')
-        console.log(res)
+        // console.log('wx.getLocation')
+        // console.log(res)
 
         // 调用sdk接口
         qqmapsdk.reverseGeocoder({
@@ -28,8 +36,8 @@ Page({
           },
           success: res => {
             //获取当前地址成功
-            console.log('reverse GEO');
-            console.log(res);
+            // console.log('reverse GEO');
+            // console.log(res);
             this.setData({
               city: res.result.address_component.city
             })
